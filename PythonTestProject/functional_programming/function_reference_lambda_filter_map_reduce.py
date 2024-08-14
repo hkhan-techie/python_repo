@@ -1,6 +1,22 @@
 import statistics
 from functools import reduce
 
+# Add 10 to argument a, and return the result:
+x = lambda a: a + 10
+print(x(5))
+
+# Multiply argument a with argument b and return the result:
+x = lambda a, b: a * b
+print(x(5, 6))
+
+
+def myfunc(n):
+    return lambda a: a * n
+
+
+mydoubler = myfunc(2)
+print(mydoubler(11))
+
 
 def multiply_by_2(data):
     return data * 2
@@ -34,6 +50,7 @@ print(list(filter(lambda x: len(x) == 3, words)))
 # Map implementation
 
 print(list(map(lambda x: x.upper(), words)))
+print(list(map(lambda x: x.lower(), words)))
 
 print(list(map(lambda x: x * x, range(1, 11))))
 
@@ -61,6 +78,6 @@ print(sum(map(lambda x: x[1], months)))
 print(reduce(lambda x, y: x if x[1] < y[1] else y, months))
 print(reduce(lambda x, y: x if x[1] < y[1] else y, months)[0])
 
-marks = [10,20,40,60]
+marks = [10, 20, 40, 60]
 
-print('mean :',statistics.mean(marks))
+print('mean :', statistics.mean(marks))
