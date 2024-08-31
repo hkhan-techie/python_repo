@@ -1,5 +1,5 @@
 # using flask_restful
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_restful import Resource, Api
 
 # creating the flask app
@@ -8,7 +8,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-# making a class for a particular resource
+# creating a class for a particular resource
 # the get, post methods correspond to get and post requests
 # they are automatically mapped by flask_restful.
 # other methods include put, delete, etc.
@@ -22,8 +22,9 @@ class Hello(Resource):
 
     # Corresponds to POST request
     def post(self):
-        data = request.get_json()  # status code
-        return jsonify({'data': data}), 201
+        data = request.get_json(True)  # status code
+        print("-----post--")
+        return make_response(jsonify({'data': data}), 201)
 
 
 # another resource to calculate the square of a number

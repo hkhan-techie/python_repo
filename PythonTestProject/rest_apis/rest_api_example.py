@@ -1,5 +1,4 @@
 # Using flask to make an api
-# import necessary libraries and functions
 from flask import Flask, jsonify, request
 
 # creating a Flask app
@@ -11,9 +10,11 @@ app = Flask(__name__)
 # returns the data that we send when we use POST.
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if (request.method == 'GET'):
+    if request.method == 'GET':
         data = "hello world"
         return jsonify({'data': data})
+    else:
+        return jsonify({'data': request.data.decode("utf-8")})
 
     # A simple function to calculate the square of a number
 
