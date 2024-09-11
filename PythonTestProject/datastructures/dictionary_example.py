@@ -284,3 +284,12 @@ for x, obj in myfamily.items():
     for y in obj:
         print(y + ' : ', obj[y])
     print("\n")
+
+mydict1 = {}
+mydict1.setdefault('a', 1)
+mydict1.setdefault('b', 3)
+if mydict1.__contains__('b'):
+    print('contains')
+    value = mydict1.get('b')
+    mydict1.__setitem__('b', value + 1)
+print(mydict1)
